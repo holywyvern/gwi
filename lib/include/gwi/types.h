@@ -30,6 +30,7 @@ typedef struct gwi_shadow   gwi_shadow;
 typedef struct gwi_line     gwi_line;
 typedef struct gwi_font     gwi_font;
 typedef struct gwi_rect     gwi_rect;
+typedef struct gwi_font     gwi_font;
 
 typedef void * (*gwi_alloc_fn)(void *, void *, size_t);
 typedef int (*gwi_event_fn)(void *, gwi_handle *, gwi_event *);
@@ -64,6 +65,13 @@ struct gwi_rect
     int y;
     int width;
     int height;
+};
+
+struct gwi_font
+{
+#ifdef _WIN32
+    HFONT handle;
+#endif    
 };
 
 #ifdef	__cplusplus
